@@ -6,7 +6,7 @@
       </div>
       <div class="column">
         <div class="is-flex is-align-items-center is-justify-content-space-between">
-          <Cronometro :contador="contador"/>
+          <CronometroTempo :contador="contador"/>
           <button class="button" @click="iniciar">
             <span class="icon">
               <i class="fas fa-play"></i>
@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Cronometro from './Cronometro.vue'
+import CronometroTempo from './CronometroTempo.vue'
 
 export default defineComponent({
   name: 'FormCount',
@@ -38,7 +38,7 @@ export default defineComponent({
     }
   },
   components: {
-    Cronometro
+    CronometroTempo
   },
   methods: {
     iniciar() {
