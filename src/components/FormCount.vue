@@ -5,21 +5,7 @@
         <input type="text" class="input" placeholder="Qual tarefa você deseja iniciar?" />
       </div>
       <div class="column">
-        <div class="is-flex is-align-items-center is-justify-content-space-between">
-          <CronometroTempo :contador="contador"/>
-          <button class="button" @click="iniciar">
-            <span class="icon">
-              <i class="fas fa-play"></i>
-            </span>
-            <span>play</span>
-          </button>
-          <button class="button" @click="pausar">
-            <span class="icon">
-              <i class="fas fa-stop"></i>
-            </span>
-            <span>stop</span>
-          </button>
-        </div>
+        <tempoerizadorTempo />
       </div>
     </div>
   </div>
@@ -27,32 +13,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import CronometroTempo from './CronometroTempo.vue'
+import tempoerizadorTempo from './TemporizadorTempo.vue'
 
 export default defineComponent({
   name: 'FormCount',
-  data() {
-    return {
-      contador: 0,
-      stopContador: 0
-    }
-  },
   components: {
-    CronometroTempo
-  },
-  methods: {
-    iniciar() {
-      this.stopContador = setInterval(() => {
-        this.contador += 1
-      }, 1000)
-      console.log('iniciando');
-      
-    },
-    pausar() {
-      clearInterval(this.stopContador);
-      console.log('pausando');
-      
-    }
+    tempoerizadorTempo
   }
 
 })
