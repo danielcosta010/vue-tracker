@@ -17,6 +17,7 @@ import { defineComponent } from 'vue';
 
 <style escoped>
   header{
+    padding: 1rem;
     background-color: rgb(55, 55, 93);
     width: 100%;
     height: 100vh;
