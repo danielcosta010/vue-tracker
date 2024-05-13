@@ -1,0 +1,59 @@
+<template>
+  <div class="box">
+    <div class="columns">
+      <div class="column is-8" role="form" aria-label="Formulário para criação de uma nova tarefa">
+        <input type="text" class="input" placeholder="Qual tarefa você deseja iniciar?" />
+      </div>
+      <div class="column">
+        <div class="is-flex is-align-items-center is-justify-content-space-between">
+          <Cronometro :contador="contador"/>
+          <button class="button" @click="iniciar">
+            <span class="icon">
+              <i class="fas fa-play"></i>
+            </span>
+            <span>play</span>
+          </button>
+          <button class="button" @click="pausar">
+            <span class="icon">
+              <i class="fas fa-stop"></i>
+            </span>
+            <span>stop</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import Cronometro from './Cronometro.vue'
+
+export default defineComponent({
+  name: 'FormCount',
+  data() {
+    return {
+      contador: 0,
+      stopContador: 0
+    }
+  },
+  components: {
+    Cronometro
+  },
+  methods: {
+    iniciar() {
+      this.stopContador = setInterval(() => {
+        this.contador += 1
+      }, 1000)
+      console.log('iniciando');
+      
+    },
+    pausar() {
+      clearInterval(this.stopContador);
+      console.log('pausando');
+      
+    }
+  }
+
+})
+</script>
